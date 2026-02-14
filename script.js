@@ -79,7 +79,12 @@ function actualizarVista() {
     "Coordinación Académica"
   );
 
-  certificado.classList.remove("theme-carnaval", "theme-tropical", "theme-atardecer");
+  certificado.classList.remove(
+    "theme-carnaval",
+    "theme-infantil",
+    "theme-comparsa",
+    "theme-mascaras"
+  );
   certificado.classList.add(`theme-${campos.tema.value}`);
 }
 

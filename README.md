@@ -11,7 +11,11 @@ Sitio web simple para crear diplomas escolares coloridos con vista previa en tie
   - nombre del colegio y evento
   - firmas y fecha
 - Carga de logo del establecimiento
-- Temas de color creativos
+- Plantillas visuales inspiradas en estilos de carnaval:
+  - Carnaval Clásico
+  - Infantil Alegre
+  - Comparsa Elegante
+  - Máscaras Vibrantes
 - Botón para **imprimir o guardar en PDF**
 
 ## Uso

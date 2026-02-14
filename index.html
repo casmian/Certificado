@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador de Certificado - Señorita Carnaval 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="panel">
+        <h1>Generador de Certificados</h1>
+        <p class="panel-subtitulo">
+          Crea diplomas vistosos para <strong>Señorita Carnaval 2026</strong>.
+        </p>
+
+        <form id="formCertificado">
+          <label for="institucion">Nombre del colegio</label>
+          <input
+            id="institucion"
+            name="institucion"
+            type="text"
+            value="Colegio CIMCEF"
+          />
+
+          <label for="evento">Evento</label>
+          <input
+            id="evento"
+            name="evento"
+            type="text"
+            value="Señorita Carnaval 2026"
+          />
+
+          <label for="nombre">Nombre de la estudiante</label>
+          <input
+            id="nombre"
+            name="nombre"
+            type="text"
+            placeholder="Ej: Ana María Pérez"
+          />
+
+          <label for="grado">Grado o categoría</label>
+          <input
+            id="grado"
+            name="grado"
+            type="text"
+            placeholder="Ej: 5to de Secundaria / Mejor Traje Típico"
+          />
+
+          <label for="reconocimiento">Texto de reconocimiento</label>
+          <textarea id="reconocimiento" name="reconocimiento" rows="3">
+Por su destacada participación, carisma y alegría en esta celebración escolar.</textarea
+          >
+
+          <label for="fecha">Fecha del diploma</label>
+          <input id="fecha" name="fecha" type="date" />
+
+          <label for="firmaUno">Firma 1 (cargo o nombre)</label>
+          <input
+            id="firmaUno"
+            name="firmaUno"
+            type="text"
+            value="Dirección del Colegio"
+          />
+
+          <label for="firmaDos">Firma 2 (cargo o nombre)</label>
+          <input
+            id="firmaDos"
+            name="firmaDos"
+            type="text"
+            value="Coordinación Académica"
+          />
+
+          <label for="tema">Tema de colores</label>
+          <select id="tema" name="tema">
+            <option value="carnaval">Carnaval</option>
+            <option value="tropical">Tropical</option>
+            <option value="atardecer">Atardecer</option>
+          </select>
+
+          <label for="logoInput">Logo del establecimiento</label>
+          <input id="logoInput" name="logoInput" type="file" accept="image/*" />
+
+          <div class="botonera">
+            <button type="button" id="btnRestablecer">Restablecer</button>
+            <button type="button" id="btnImprimir" class="boton-primario">
+              Imprimir / Guardar PDF
+            </button>
+          </div>
+        </form>
+      </aside>
+
+      <main class="contenedor-vista">
+        <section class="certificado theme-carnaval" id="certificado">
+          <div class="borde"></div>
+          <div class="adorno adorno-uno"></div>
+          <div class="adorno adorno-dos"></div>
+          <div class="adorno adorno-tres"></div>
+
+          <header class="cabecera-certificado">
+            <div class="logo" id="logoContainer">
+              <img id="logoPreview" alt="Logo del establecimiento" />
+              <span id="logoPlaceholder">Logo del establecimiento</span>
+            </div>
+            <p class="institucion" id="vistaInstitucion">Colegio CIMCEF</p>
+            <h2>DIPLOMA DE HONOR</h2>
+            <h3 id="vistaEvento">Señorita Carnaval 2026</h3>
+          </header>
+
+          <article class="contenido-certificado">
+            <p class="intro">
+              <span id="vistaInstitucionIntro">Colegio CIMCEF</span> otorga el
+              siguiente diploma a:
+            </p>
+            <p class="nombre-destacado" id="vistaNombre">Nombre de la estudiante</p>
+            <p class="subtexto">Grado o categoría:</p>
+            <p class="grado-destacado" id="vistaGrado">Grado o categoría</p>
+            <p class="reconocimiento" id="vistaReconocimiento">
+              Por su destacada participación, carisma y alegría en esta
+              celebración escolar.
+            </p>
+          </article>
+
+          <footer class="pie-certificado">
+            <p class="fecha" id="vistaFecha">14 de febrero de 2026</p>
+            <div class="firmas">
+              <div>
+                <span class="linea-firma"></span>
+                <p id="vistaFirmaUno">Dirección del Colegio</p>
+              </div>
+              <div>
+                <span class="linea-firma"></span>
+                <p id="vistaFirmaDos">Coordinación Académica</p>
+              </div>
+            </div>
+          </footer>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

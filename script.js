@@ -14,6 +14,13 @@ const campos = {
   firmaDos: document.getElementById("firmaDos"),
   tema: document.getElementById("tema"),
   logoInput: document.getElementById("logoInput"),
+  mostrarCategoria: document.getElementById("mostrarCategoria"),
+  mostrarGrado: document.getElementById("mostrarGrado"),
+  mostrarTematica: document.getElementById("mostrarTematica"),
+  mostrarReconocimiento: document.getElementById("mostrarReconocimiento"),
+  mostrarLogo: document.getElementById("mostrarLogo"),
+  mostrarFecha: document.getElementById("mostrarFecha"),
+  mostrarFirmas: document.getElementById("mostrarFirmas"),
 };
 
 const vista = {
@@ -30,6 +37,13 @@ const vista = {
   firmaDos: document.getElementById("vistaFirmaDos"),
   logo: document.getElementById("logoPreview"),
   logoPlaceholder: document.getElementById("logoPlaceholder"),
+  logoContainer: document.getElementById("logoContainer"),
+  bloqueCategoria: document.getElementById("bloqueCategoria"),
+  bloqueGrado: document.getElementById("bloqueGrado"),
+  bloqueTematica: document.getElementById("bloqueTematica"),
+  bloqueReconocimiento: document.getElementById("bloqueReconocimiento"),
+  bloqueFecha: document.getElementById("bloqueFecha"),
+  bloqueFirmas: document.getElementById("bloqueFirmas"),
 };
 
 const btnRestablecer = document.getElementById("btnRestablecer");
@@ -73,6 +87,21 @@ function formatearFecha(valorFecha) {
     month: "long",
     year: "numeric",
   });
+}
+
+function definirVisibilidad(elemento, visible) {
+  if (!elemento) return;
+  elemento.classList.toggle("oculto", !visible);
+}
+
+function actualizarVisibilidad() {
+  definirVisibilidad(vista.bloqueCategoria, campos.mostrarCategoria.checked);
+  definirVisibilidad(vista.bloqueGrado, campos.mostrarGrado.checked);
+  definirVisibilidad(vista.bloqueTematica, campos.mostrarTematica.checked);
+  definirVisibilidad(vista.bloqueReconocimiento, campos.mostrarReconocimiento.checked);
+  definirVisibilidad(vista.logoContainer, campos.mostrarLogo.checked);
+  definirVisibilidad(vista.bloqueFecha, campos.mostrarFecha.checked);
+  definirVisibilidad(vista.bloqueFirmas, campos.mostrarFirmas.checked);
 }
 
 function actualizarVista() {
@@ -126,6 +155,7 @@ function actualizarVista() {
     "theme-mascaras"
   );
   certificado.classList.add(`theme-${campos.tema.value}`);
+  actualizarVisibilidad();
 }
 
 function aplicarCategoriaOficial() {

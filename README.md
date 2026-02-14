@@ -18,6 +18,13 @@ Sitio web simple para crear diplomas escolares coloridos con vista previa en tie
   - Infantil Alegre
   - Comparsa Elegante
   - Máscaras Vibrantes
+- Opciones para decidir si se incluye o no en el diploma:
+  - categoría
+  - grados
+  - temática
+  - reconocimiento
+  - logo
+  - fecha y firmas
 - Botón para **imprimir o guardar en PDF**
 
 ## Uso
@@ -25,8 +32,9 @@ Sitio web simple para crear diplomas escolares coloridos con vista previa en tie
 1. Abre `index.html` en tu navegador.
 2. Selecciona la categoría oficial (A, B, C o D) para autocompletar grados y temática.
 3. Completa o ajusta los datos del certificado.
-4. Sube el logo del colegio.
-5. Haz clic en **Imprimir / Guardar PDF**.
+4. Marca o desmarca los elementos que quieres incluir (categoría, grados, temática, logo, etc.).
+5. Sube el logo del colegio (si está habilitado).
+6. Haz clic en **Imprimir / Guardar PDF**.
 
 ## Categorías configuradas
 

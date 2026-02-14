@@ -116,6 +116,43 @@ Por su valiosa participación en la actividad Señorita Carnaval 2026, demostran
             </ul>
           </div>
 
+          <fieldset class="opciones-visibilidad">
+            <legend>Elementos visibles en el diploma</legend>
+            <label class="opcion-check">
+              <input id="mostrarCategoria" name="mostrarCategoria" type="checkbox" checked />
+              Incluir categoría
+            </label>
+            <label class="opcion-check">
+              <input id="mostrarGrado" name="mostrarGrado" type="checkbox" checked />
+              Incluir grados participantes
+            </label>
+            <label class="opcion-check">
+              <input id="mostrarTematica" name="mostrarTematica" type="checkbox" checked />
+              Incluir temática de vestuario
+            </label>
+            <label class="opcion-check">
+              <input
+                id="mostrarReconocimiento"
+                name="mostrarReconocimiento"
+                type="checkbox"
+                checked
+              />
+              Incluir texto de reconocimiento
+            </label>
+            <label class="opcion-check">
+              <input id="mostrarLogo" name="mostrarLogo" type="checkbox" checked />
+              Incluir logo
+            </label>
+            <label class="opcion-check">
+              <input id="mostrarFecha" name="mostrarFecha" type="checkbox" checked />
+              Incluir fecha
+            </label>
+            <label class="opcion-check">
+              <input id="mostrarFirmas" name="mostrarFirmas" type="checkbox" checked />
+              Incluir firmas
+            </label>
+          </fieldset>
+
           <div class="botonera">
             <button type="button" id="btnRestablecer">Restablecer</button>
             <button type="button" id="btnImprimir" class="boton-primario">
@@ -159,21 +196,31 @@ Por su valiosa participación en la actividad Señorita Carnaval 2026, demostran
               siguiente diploma a:
             </p>
             <p class="nombre-destacado" id="vistaNombre">Nombre de la estudiante</p>
-            <p class="subtexto">Categoría:</p>
-            <p class="grado-destacado" id="vistaCategoria">CATEGORÍA "A"</p>
-            <p class="subtexto">Grados participantes:</p>
-            <p class="detalle-destacado" id="vistaGrado">Pre kinder y Kinder</p>
-            <p class="subtexto">Temática de vestuario:</p>
-            <p class="detalle-destacado" id="vistaTematica">Hadas (Adas)</p>
-            <p class="reconocimiento" id="vistaReconocimiento">
-              Por su valiosa participación en la actividad Señorita Carnaval
-              2026, demostrando creatividad, entusiasmo y compañerismo.
-            </p>
+            <div class="bloque-info" id="bloqueCategoria">
+              <p class="subtexto">Categoría:</p>
+              <p class="grado-destacado" id="vistaCategoria">CATEGORÍA "A"</p>
+            </div>
+            <div class="bloque-info" id="bloqueGrado">
+              <p class="subtexto">Grados participantes:</p>
+              <p class="detalle-destacado" id="vistaGrado">Pre kinder y Kinder</p>
+            </div>
+            <div class="bloque-info" id="bloqueTematica">
+              <p class="subtexto">Temática de vestuario:</p>
+              <p class="detalle-destacado" id="vistaTematica">Hadas (Adas)</p>
+            </div>
+            <div class="bloque-info" id="bloqueReconocimiento">
+              <p class="reconocimiento" id="vistaReconocimiento">
+                Por su valiosa participación en la actividad Señorita Carnaval
+                2026, demostrando creatividad, entusiasmo y compañerismo.
+              </p>
+            </div>
           </article>
 
           <footer class="pie-certificado">
-            <p class="fecha" id="vistaFecha">14 de febrero de 2026</p>
-            <div class="firmas">
+            <div id="bloqueFecha">
+              <p class="fecha" id="vistaFecha">14 de febrero de 2026</p>
+            </div>
+            <div class="firmas" id="bloqueFirmas">
               <div>
                 <span class="linea-firma"></span>
                 <p id="vistaFirmaUno">Dirección del Colegio</p>

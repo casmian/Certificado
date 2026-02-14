@@ -90,6 +90,34 @@ select:focus {
   outline: 2px solid rgba(141, 126, 255, 0.2);
 }
 
+.resumen-categorias {
+  margin-top: 0.2rem;
+  border: 1px dashed #cfcaf7;
+  border-radius: 10px;
+  background: #f9f7ff;
+  padding: 0.65rem 0.72rem;
+}
+
+.resumen-categorias p {
+  margin: 0 0 0.28rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #4d4380;
+}
+
+.resumen-categorias ul {
+  margin: 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.resumen-categorias li {
+  font-size: 0.79rem;
+  line-height: 1.35;
+  color: #494364;
+}
+
 .botonera {
   display: flex;
   gap: 0.6rem;
@@ -423,30 +451,37 @@ button:hover {
 .intro,
 .subtexto,
 .reconocimiento {
-  margin: 0.4rem 0;
-  font-size: clamp(0.95rem, 1.6vw, 1.16rem);
+  margin: 0.25rem 0;
+  font-size: clamp(0.88rem, 1.4vw, 1.04rem);
   color: #433d5f;
 }
 
 .nombre-destacado {
-  margin: 0.36rem 0;
-  font-size: clamp(1.7rem, 4vw, 2.9rem);
+  margin: 0.22rem 0;
+  font-size: clamp(1.45rem, 3.4vw, 2.55rem);
   font-family: "Brush Script MT", "Lucida Handwriting", cursive;
   color: var(--cert-secundario);
   line-height: 1.2;
 }
 
 .grado-destacado {
-  margin: 0;
-  font-size: clamp(1.15rem, 2.4vw, 1.72rem);
+  margin: 0.05rem 0 0.15rem;
+  font-size: clamp(0.98rem, 2vw, 1.35rem);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--cert-primario);
 }
 
+.detalle-destacado {
+  margin: 0;
+  font-size: clamp(0.92rem, 1.7vw, 1.18rem);
+  font-weight: 600;
+  color: var(--cert-secundario);
+}
+
 .reconocimiento {
-  margin-top: 0.85rem;
+  margin-top: 0.48rem;
   line-height: 1.4;
 }
 

@@ -5,7 +5,9 @@ const campos = {
   institucion: document.getElementById("institucion"),
   evento: document.getElementById("evento"),
   nombre: document.getElementById("nombre"),
+  categoria: document.getElementById("categoria"),
   grado: document.getElementById("grado"),
+  tematica: document.getElementById("tematica"),
   reconocimiento: document.getElementById("reconocimiento"),
   fecha: document.getElementById("fecha"),
   firmaUno: document.getElementById("firmaUno"),
@@ -19,7 +21,9 @@ const vista = {
   institucionIntro: document.getElementById("vistaInstitucionIntro"),
   evento: document.getElementById("vistaEvento"),
   nombre: document.getElementById("vistaNombre"),
+  categoria: document.getElementById("vistaCategoria"),
   grado: document.getElementById("vistaGrado"),
+  tematica: document.getElementById("vistaTematica"),
   reconocimiento: document.getElementById("vistaReconocimiento"),
   fecha: document.getElementById("vistaFecha"),
   firmaUno: document.getElementById("vistaFirmaUno"),
@@ -30,6 +34,29 @@ const vista = {
 
 const btnRestablecer = document.getElementById("btnRestablecer");
 const btnImprimir = document.getElementById("btnImprimir");
+
+const CATEGORIAS = {
+  A: {
+    etiqueta: 'CATEGORÍA "A"',
+    grados: "Pre kinder y Kinder",
+    tematica: "Hadas (Adas)",
+  },
+  B: {
+    etiqueta: 'CATEGORÍA "B"',
+    grados: "Primero, segundo y tercero",
+    tematica: "Mariposas",
+  },
+  C: {
+    etiqueta: 'CATEGORÍA "C"',
+    grados: "Cuarto, quinto y sexto primaria",
+    tematica: "Flores",
+  },
+  D: {
+    etiqueta: 'CATEGORÍA "D"',
+    grados: "Primero, segundo, tercero básico y cuarto y quinto bachillerato",
+    tematica: "Libre (hadas, mariposas y flores)",
+  },
+};
 
 function valorConRespaldo(valor, respaldo) {
   const limpio = valor.trim();
@@ -50,6 +77,14 @@ function formatearFecha(valorFecha) {
 
 function actualizarVista() {
   const institucion = valorConRespaldo(campos.institucion.value, "Colegio CIMCEF");
+  const categoriaSeleccionada = campos.categoria.value;
+  const categoriaRespaldo =
+    categoriaSeleccionada === "personalizada"
+      ? "CATEGORÍA PERSONALIZADA"
+      : CATEGORIAS[categoriaSeleccionada]?.etiqueta ?? 'CATEGORÍA "A"';
+  const gradosRespaldo = CATEGORIAS[categoriaSeleccionada]?.grados ?? "Grados participantes";
+  const tematicaRespaldo =
+    CATEGORIAS[categoriaSeleccionada]?.tematica ?? "Temática de vestuario";
 
   vista.institucion.textContent = institucion;
   vista.institucionIntro.textContent = institucion;
@@ -59,15 +94,20 @@ function actualizarVista() {
   );
   vista.nombre.textContent = valorConRespaldo(
     campos.nombre.value,
-    "Nombre de la estudiante"
+    "Estudiante participante"
   );
+  vista.categoria.textContent = categoriaRespaldo;
   vista.grado.textContent = valorConRespaldo(
     campos.grado.value,
-    "Grado o categoría"
+    gradosRespaldo
+  );
+  vista.tematica.textContent = valorConRespaldo(
+    campos.tematica.value,
+    tematicaRespaldo
   );
   vista.reconocimiento.textContent = valorConRespaldo(
     campos.reconocimiento.value,
-    "Por su destacada participación, carisma y alegría en esta celebración escolar."
+    "Por su valiosa participación en la actividad Señorita Carnaval 2026, demostrando creatividad, entusiasmo y compañerismo."
   );
   vista.fecha.textContent = formatearFecha(campos.fecha.value);
   vista.firmaUno.textContent = valorConRespaldo(
@@ -86,6 +126,17 @@ function actualizarVista() {
     "theme-mascaras"
   );
   certificado.classList.add(`theme-${campos.tema.value}`);
+}
+
+function aplicarCategoriaOficial() {
+  const categoriaSeleccionada = campos.categoria.value;
+  if (categoriaSeleccionada === "personalizada") return;
+  const datosCategoria = CATEGORIAS[categoriaSeleccionada];
+  if (!datosCategoria) return;
+
+  campos.grado.value = datosCategoria.grados;
+  campos.tematica.value = datosCategoria.tematica;
+  campos.reconocimiento.value = `Por su valiosa participación en la ${datosCategoria.etiqueta} con la temática de ${datosCategoria.tematica}, demostrando creatividad, entusiasmo y compañerismo.`;
 }
 
 function establecerFechaActual() {
@@ -125,9 +176,14 @@ campos.logoInput.addEventListener("change", (evento) => {
 
 form.addEventListener("input", actualizarVista);
 form.addEventListener("change", actualizarVista);
+campos.categoria.addEventListener("change", () => {
+  aplicarCategoriaOficial();
+  actualizarVista();
+});
 
 btnRestablecer.addEventListener("click", () => {
   form.reset();
+  aplicarCategoriaOficial();
   establecerFechaActual();
   limpiarLogo();
   actualizarVista();
@@ -138,5 +194,6 @@ btnImprimir.addEventListener("click", () => {
 });
 
 establecerFechaActual();
+aplicarCategoriaOficial();
 limpiarLogo();
 actualizarVista();

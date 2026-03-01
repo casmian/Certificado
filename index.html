@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador de Certificado - Señorita Carnaval 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="panel">
+        <h1>Generador de Certificados</h1>
+        <p class="panel-subtitulo">
+          Crea diplomas vistosos para <strong>Señorita Carnaval 2026</strong>.
+        </p>
+
+        <form id="formCertificado">
+          <label for="institucion">Nombre del colegio</label>
+          <input
+            id="institucion"
+            name="institucion"
+            type="text"
+            value="Colegio CIMCEF"
+          />
+
+          <label for="evento">Evento</label>
+          <input
+            id="evento"
+            name="evento"
+            type="text"
+            value="Señorita Carnaval 2026"
+          />
+
+          <label for="nombre">Nombre de la estudiante</label>
+          <input
+            id="nombre"
+            name="nombre"
+            type="text"
+            placeholder="Ej: Ana María Pérez / Representante del curso"
+          />
+
+          <label for="categoria">Categoría oficial</label>
+          <select id="categoria" name="categoria">
+            <option value="A">CATEGORÍA "A"</option>
+            <option value="B">CATEGORÍA "B"</option>
+            <option value="C">CATEGORÍA "C"</option>
+            <option value="D">CATEGORÍA "D"</option>
+            <option value="personalizada">Personalizada</option>
+          </select>
+
+          <label for="grado">Grados participantes</label>
+          <input
+            id="grado"
+            name="grado"
+            type="text"
+            value="Pre kinder y Kinder"
+            placeholder="Ej: Pre kinder y Kinder"
+          />
+
+          <label for="tematica">Temática de vestuario de fantasía</label>
+          <input
+            id="tematica"
+            name="tematica"
+            type="text"
+            value="Hadas (Adas)"
+            placeholder="Ej: Mariposas"
+          />
+
+          <label for="reconocimiento">Texto de reconocimiento</label>
+          <textarea id="reconocimiento" name="reconocimiento" rows="3">
+Por su valiosa participación en la actividad Señorita Carnaval 2026, demostrando creatividad, entusiasmo y compañerismo.</textarea
+          >
+
+          <label for="fecha">Fecha del diploma</label>
+          <input id="fecha" name="fecha" type="date" />
+
+          <label for="firmaUno">Firma 1 (cargo o nombre)</label>
+          <input
+            id="firmaUno"
+            name="firmaUno"
+            type="text"
+            value="Dirección del Colegio"
+          />
+
+          <label for="firmaDos">Firma 2 (cargo o nombre)</label>
+          <input
+            id="firmaDos"
+            name="firmaDos"
+            type="text"
+            value="Coordinación Académica"
+          />
+
+          <label for="tema">Tema de colores</label>
+          <select id="tema" name="tema">
+            <option value="carnaval">Carnaval Clásico</option>
+            <option value="infantil">Infantil Alegre</option>
+            <option value="comparsa">Comparsa Elegante</option>
+            <option value="mascaras">Máscaras Vibrantes</option>
+          </select>
+
+          <label for="logoInput">Logo del establecimiento</label>
+          <input id="logoInput" name="logoInput" type="file" accept="image/*" />
+
+          <div class="resumen-categorias">
+            <p>Categorías oficiales del evento:</p>
+            <ul>
+              <li><strong>A:</strong> Pre kinder y Kinder - Hadas (Adas)</li>
+              <li><strong>B:</strong> Primero, segundo y tercero - Mariposas</li>
+              <li>
+                <strong>C:</strong> Cuarto, quinto y sexto primaria - Flores
+              </li>
+              <li>
+                <strong>D:</strong> Primero, segundo, tercero básico y cuarto y
+                quinto bachillerato - Libre (hadas, mariposas y flores)
+              </li>
+            </ul>
+          </div>
+
+          <fieldset class="opciones-visibilidad">
+            <legend>Elementos visibles en el diploma</legend>
+            <label class="opcion-check">
+              <input id="mostrarCategoria" name="mostrarCategoria" type="checkbox" checked />
+              Incluir categoría
+            </label>
+            <label class="opcion-check">
+              <input id="mostrarGrado" name="mostrarGrado" type="checkbox" checked />
+              Incluir grados participantes
+            </label>
+            <label class="opcion-check">
+              <input id="mostrarTematica" name="mostrarTematica" type="checkbox" checked />
+              Incluir temática de vestuario
+            </label>
+            <label class="opcion-check">
+              <input
+                id="mostrarReconocimiento"
+                name="mostrarReconocimiento"
+                type="checkbox"
+                checked
+              />
+              Incluir texto de reconocimiento
+            </label>
+            <label class="opcion-check">
+              <input id="mostrarLogo" name="mostrarLogo" type="checkbox" checked />
+              Incluir logo
+            </label>
+            <label class="opcion-check">
+              <input id="mostrarFecha" name="mostrarFecha" type="checkbox" checked />
+              Incluir fecha
+            </label>
+            <label class="opcion-check">
+              <input id="mostrarFirmas" name="mostrarFirmas" type="checkbox" checked />
+              Incluir firmas
+            </label>
+          </fieldset>
+
+          <div class="botonera">
+            <button type="button" id="btnRestablecer">Restablecer</button>
+            <button type="button" id="btnImprimir" class="boton-primario">
+              Imprimir / Guardar PDF
+            </button>
+          </div>
+        </form>
+      </aside>
+
+      <main class="contenedor-vista">
+        <section class="certificado theme-carnaval" id="certificado">
+          <div class="marco"></div>
+          <div class="fondo-lienzo"></div>
+          <div class="nube-central"></div>
+          <div class="franja-superior"></div>
+          <div class="franja-inferior"></div>
+
+          <div class="esquina esquina-superior-izquierda"></div>
+          <div class="esquina esquina-superior-derecha"></div>
+          <div class="esquina esquina-inferior-izquierda"></div>
+          <div class="esquina esquina-inferior-derecha"></div>
+
+          <div class="serpentina serpentina-a"></div>
+          <div class="serpentina serpentina-b"></div>
+          <div class="serpentina serpentina-c"></div>
+          <div class="serpentina serpentina-d"></div>
+
+          <header class="cabecera-certificado">
+            <div class="logo" id="logoContainer">
+              <img id="logoPreview" alt="Logo del establecimiento" />
+              <span id="logoPlaceholder">Logo del establecimiento</span>
+            </div>
+            <p class="institucion" id="vistaInstitucion">Colegio CIMCEF</p>
+            <h2>DIPLOMA DE PARTICIPACIÓN</h2>
+            <h3 id="vistaEvento">Señorita Carnaval 2026</h3>
+          </header>
+
+          <article class="contenido-certificado">
+            <p class="intro">
+              <span id="vistaInstitucionIntro">Colegio CIMCEF</span> otorga el
+              siguiente diploma a:
+            </p>
+            <p class="nombre-destacado" id="vistaNombre">Nombre de la estudiante</p>
+            <div class="bloque-info" id="bloqueCategoria">
+              <p class="subtexto">Categoría:</p>
+              <p class="grado-destacado" id="vistaCategoria">CATEGORÍA "A"</p>
+            </div>
+            <div class="bloque-info" id="bloqueGrado">
+              <p class="subtexto">Grados participantes:</p>
+              <p class="detalle-destacado" id="vistaGrado">Pre kinder y Kinder</p>
+            </div>
+            <div class="bloque-info" id="bloqueTematica">
+              <p class="subtexto">Temática de vestuario:</p>
+              <p class="detalle-destacado" id="vistaTematica">Hadas (Adas)</p>
+            </div>
+            <div class="bloque-info" id="bloqueReconocimiento">
+              <p class="reconocimiento" id="vistaReconocimiento">
+                Por su valiosa participación en la actividad Señorita Carnaval
+                2026, demostrando creatividad, entusiasmo y compañerismo.
+              </p>
+            </div>
+          </article>
+
+          <footer class="pie-certificado">
+            <div id="bloqueFecha">
+              <p class="fecha" id="vistaFecha">14 de febrero de 2026</p>
+            </div>
+            <div class="firmas" id="bloqueFirmas">
+              <div>
+                <span class="linea-firma"></span>
+                <p id="vistaFirmaUno">Dirección del Colegio</p>
+              </div>
+              <div>
+                <span class="linea-firma"></span>
+                <p id="vistaFirmaDos">Coordinación Académica</p>
+              </div>
+            </div>
+          </footer>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
